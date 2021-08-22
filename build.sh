@@ -34,4 +34,4 @@ if [ ! -d extensions/EmbedVideo ]; then
     unzip EmbedVideo-v2.9.0.zip
     mv EmbedVideo-v2.9.0 extensions/EmbedVideo
 fi
-docker build -t aqua-1.35 .
+docker build -t fantasticofox/pkc .
