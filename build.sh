@@ -1,14 +1,16 @@
 #!/usr/bin/env bash
 
 set -ex
-mkdir -p extensions
 
-if [ ! -d extensions/Medik ]; then
+mkdir -p skins
+if [ ! -d skins/Medik ]; then
     echo "Downloading Medik skin"
     wget https://bitbucket.org/wikiskripta/medik/get/master.tar.gz
     tar xf master.tar.gz
-    mv wikiskripta-medik-* extensions/Medik
+    mv wikiskripta-medik-* skins/Medik
 fi
+
+mkdir -p extensions
 
 # https://www.mediawiki.org/wiki/Extension:PDFEmbed
 if [ ! -d extensions/PDFEmbed ]; then
