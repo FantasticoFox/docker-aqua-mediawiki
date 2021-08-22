@@ -1,0 +1,5 @@
+{
+    "require": {
+        "rht/merkle-tree": "dev-master"
+    }
+}
