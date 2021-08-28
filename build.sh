@@ -34,4 +34,13 @@ if [ ! -d extensions/EmbedVideo ]; then
     unzip EmbedVideo-v2.9.0.zip
     mv EmbedVideo-v2.9.0 extensions/EmbedVideo
 fi
+
+# https://www.mediawiki.org/wiki/Extension:OAuth
+if [ ! -d extensions/OAuth ]; then
+    echo "Downloading OAuth"
+    wget https://extdist.wmflabs.org/dist/extensions/OAuth-REL1_35-451ed95.tar.gz
+    tar xf OAuth-REL1_35-451ed95.tar.gz
+    mv OAuth extensions/OAuth
+fi
+
 docker build -t fantasticofox/pkc .
