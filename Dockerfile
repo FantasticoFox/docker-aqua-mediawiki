@@ -29,13 +29,13 @@ COPY ./resources/php.ini /usr/local/etc/php/php.ini
 COPY ./resources/aqua.png resources/assets/aqua.png
 COPY ./composer.local.json composer.local.json
 
-# Install the latest version of PHP package manager "Composer"
+# Install the latest version of PHP package manager "Composer" and install
+# MW-OAuth2Client from Git master.
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin/ --filename=composer && \
-    composer update --no-dev
-
-# Not needed for now
-## Copy MW-OAuth2Client package to extensions/
-#COPY ./extensions/MW-OAuth2Client/ ${MW_ROOT}/extensions/MW-OAuth2Client/
-## Go to the ${MW_ROOT}/extensions/MW-OAuth2Client/vendors/oauth2-client to install oauth-client
-#WORKDIR ${MW_ROOT}/extensions/MW-OAuth2Client/vendors/oauth2-client
-#RUN composer install
+    composer update --no-dev && \
+    cd extensions && \
+    git clone https://github.com/Schine/MW-OAuth2Client.git && \
+    cd MW-OAuth2Client && \
+    git submodule update --init && \
+    cd vendors/oauth2-client && \
+    composer install
