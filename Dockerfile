@@ -34,7 +34,7 @@ COPY ./composer.local.json composer.local.json
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin/ --filename=composer && \
     composer update --no-dev && \
     cd extensions && \
-    git clone https://github.com/Schine/MW-OAuth2Client.git && \
+    git clone https://github.com/rht/MW-OAuth2Client.git && \
     cd MW-OAuth2Client && \
     git submodule update --init && \
     cd vendors/oauth2-client && \
