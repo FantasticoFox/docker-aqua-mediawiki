@@ -12,6 +12,7 @@ RUN set -ex && \
     apt-get -q install -y --no-install-recommends nano vim ripgrep tig fd-find && \
     rm /etc/apt/preferences.d/no-debian-php && \
     apt-get -q install -y --no-install-recommends zip unzip php-zip && \
+    apt-get -q install -y --no-install-recommends mariadb-client && \
     rm -rf /var/lib/apt/lists/*  # Remove unnecessary apt cache to keep the layer small
 
 # Define working directory for the following commands
