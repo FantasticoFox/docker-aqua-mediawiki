@@ -1,4 +1,4 @@
-FROM mediawiki:1.35.3
+FROM prowiki/mediawiki:37
 
 # Define the MW_ROOT in MediaWiki as a variable name.
 ENV MW_ROOT /var/www/html
