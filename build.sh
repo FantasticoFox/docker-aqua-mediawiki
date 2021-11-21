@@ -3,11 +3,11 @@
 set -ex
 
 mkdir -p skins
-if [ ! -d skins/Medik ]; then
-    echo "Downloading Medik skin"
-    wget https://bitbucket.org/wikiskripta/medik/get/master.tar.gz
-    tar xf master.tar.gz
-    mv wikiskripta-medik-* skins/Medik
+if [ ! -d skins/Tweeki ]; then
+    echo "Downloading Tweeki skin"
+    wget https://github.com/thaider/Tweeki/archive/refs/tags/v1.2.6.tar.gz
+    tar xf v1.2.6.tar.gz
+    mv Tweeki-* skins/Tweeki
 fi
 
 mkdir -p extensions

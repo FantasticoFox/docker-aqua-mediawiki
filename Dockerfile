@@ -18,8 +18,8 @@ RUN set -ex && \
 # Define working directory for the following commands
 WORKDIR ${MW_ROOT}
 
-# Copy Medik skin to skins/
-COPY ./skins/Medik skins/Medik
+# Copy Tweeki skin to skins/
+COPY ./skins/Tweeki skins/Tweeki
 
 # Copy extensions
 COPY ./extensions extensions
