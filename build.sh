@@ -1,12 +1,16 @@
 #!/usr/bin/env bash
 
-set -ex
+set -euo pipefail
+
+tweeki_version=1.2.6
+pdfembed_version=2.0.2
+embedvideo_version=2.9.0
 
 mkdir -p skins
 if [ ! -d skins/Tweeki ]; then
     echo "Downloading Tweeki skin"
-    wget https://github.com/thaider/Tweeki/archive/refs/tags/v1.2.6.tar.gz
-    tar xf v1.2.6.tar.gz
+    wget https://github.com/thaider/Tweeki/archive/refs/tags/v${tweeki_version}.tar.gz
+    tar xf v${tweeki_version}.tar.gz
     mv Tweeki-* skins/Tweeki
 fi
 
@@ -15,23 +19,23 @@ mkdir -p extensions
 # https://www.mediawiki.org/wiki/Extension:PDFEmbed
 if [ ! -d extensions/PDFEmbed ]; then
     echo "Downloading PDFEmbed"
-    wget https://gitlab.com/hydrawiki/extensions/PDFEmbed/-/archive/2.0.2/PDFEmbed-2.0.2.zip
-    unzip PDFEmbed-2.0.2.zip
-    mv PDFEmbed-2.0.2/ extensions/PDFEmbed
+    wget https://gitlab.com/hydrawiki/extensions/PDFEmbed/-/archive/${pdfembed_version}/PDFEmbed-${pdfembed_version}.zip
+    unzip PDFEmbed-${pdfembed_version}.zip
+    mv PDFEmbed-${pdfembed_version}/ extensions/PDFEmbed
 fi
 
 # https://github.com/wikimedia/mediawiki-extensions-intersection
 # We have a problem getting a permanent download url for this extension.
 #if [ ! -d extensions/intersection ]; then
 #    echo "Downloading intersection"
-#    wget 
+#    wget
 #fi
 
 # https://www.mediawiki.org/wiki/Extension:EmbedVideo
 if [ ! -d extensions/EmbedVideo ]; then
     echo "Downloading EmbedVideo"
-    wget https://gitlab.com/hydrawiki/extensions/EmbedVideo/-/archive/v2.9.0/EmbedVideo-v2.9.0.zip
-    unzip EmbedVideo-v2.9.0.zip
-    mv EmbedVideo-v2.9.0 extensions/EmbedVideo
+    wget https://gitlab.com/hydrawiki/extensions/EmbedVideo/-/archive/v${embedvideo_version}/EmbedVideo-v${embedvideo_version}.zip
+    unzip EmbedVideo-v${embedvideo_version}.zip
+    mv EmbedVideo-v${embedvideo_version} extensions/EmbedVideo
 fi
 docker build -t fantasticofox/pkc .
