@@ -32,10 +32,11 @@ fi
 #fi
 
 # https://www.mediawiki.org/wiki/Extension:EmbedVideo
-if [ ! -d extensions/EmbedVideo ]; then
-    echo "Downloading EmbedVideo"
-    wget https://gitlab.com/hydrawiki/extensions/EmbedVideo/-/archive/v${embedvideo_version}/EmbedVideo-v${embedvideo_version}.zip
-    unzip EmbedVideo-v${embedvideo_version}.zip
-    mv EmbedVideo-v${embedvideo_version} extensions/EmbedVideo
-fi
+# Disabled per stakeholder request in DataAccounting/issues/189
+# if [ ! -d extensions/EmbedVideo ]; then
+#     echo "Downloading EmbedVideo"
+#     wget https://gitlab.com/hydrawiki/extensions/EmbedVideo/-/archive/v${embedvideo_version}/EmbedVideo-v${embedvideo_version}.zip
+#     unzip EmbedVideo-v${embedvideo_version}.zip
+#     mv EmbedVideo-v${embedvideo_version} extensions/EmbedVideo
+# fi
 docker build -t fantasticofox/pkc .
