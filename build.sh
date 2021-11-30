@@ -38,5 +38,5 @@ fi
 #     wget https://gitlab.com/hydrawiki/extensions/EmbedVideo/-/archive/v${embedvideo_version}/EmbedVideo-v${embedvideo_version}.zip
 #     unzip EmbedVideo-v${embedvideo_version}.zip
 #     mv EmbedVideo-v${embedvideo_version} extensions/EmbedVideo
-# fi
-docker build -t fantasticofox/pkc .
+# fip
+docker build -t 0xc0000007b/micro-pkc-mediawiki .
