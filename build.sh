@@ -31,6 +31,7 @@ fi
 #    wget
 #fi
 
+# Is commented out because the extension is deprecated in it's current version in MW 1.37.X
 # https://www.mediawiki.org/wiki/Extension:EmbedVideo
 # Disabled per stakeholder request in DataAccounting/issues/189
 # if [ ! -d extensions/EmbedVideo ]; then
@@ -39,4 +40,4 @@ fi
 #     unzip EmbedVideo-v${embedvideo_version}.zip
 #     mv EmbedVideo-v${embedvideo_version} extensions/EmbedVideo
 # fip
-docker build -t 0xc0000007b/micro-pkc-mediawiki .
+docker build -t inblockio/micro-pkc-mediawiki .
