@@ -1,4 +1,4 @@
-FROM 0xc000007b/mediawiki:37php74
+FROM inblockio/mediawiki:37php74
 
 # Define the MW_ROOT in MediaWiki as a variable name.
 ENV MW_ROOT /var/www/html
