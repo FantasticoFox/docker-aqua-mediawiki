@@ -30,6 +30,10 @@ COPY ./resources/php.ini /usr/local/etc/php/php.ini
 COPY ./resources/aqua.png resources/assets/aqua.png
 COPY ./composer.local.json composer.local.json
 
+# TODO hack to address https://github.com/inblockio/DataAccounting/issues/244.
+# Remove this once MediaWiki has made a patch release.
+RUN sed -i 's/$this->package->setProvides( \[ $link \] );/$this->package->setProvides( \[ self::MEDIAWIKI_PACKAGE_NAME => $link \] );/' ./includes/composer/ComposerPackageModifier.php
+
 # Install the latest version of PHP package manager "Composer" and install
 # MW-OAuth2Client from Git master.
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin/ --filename=composer && \
