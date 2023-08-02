@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-tweeki_version=2.0.1
+tweeki_version=2.0.3
 pdfembed_version=2.0.2
 embedvideo_version=2.9.0
 
