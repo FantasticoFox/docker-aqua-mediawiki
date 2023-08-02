@@ -144,11 +144,12 @@ RUN docker-php-source extract && \
 	docker-php-ext-install /usr/local/src/luasandbox && \
 	rm -rf /usr/local/src/luasandbox
 
-COPY htaccess /var/www/html/.htaccess
+COPY resources/htaccess /var/www/html/.htaccess
 RUN ln -s /var/www/html/ /var/www/html/w
 
 CMD ["apache2-foreground"]
 
+# START AQUA custom setup
 # Define the MW_ROOT in MediaWiki as a variable name.
 ENV MW_ROOT /var/www/html
 
