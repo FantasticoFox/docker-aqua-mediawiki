@@ -1,6 +1,5 @@
 {
     "require": {
-        "rht/merkle-tree": "dev-master",
-        "wikimedia/equivset": "^1.4"
+        "rht/merkle-tree": "dev-master"
     }
 }
