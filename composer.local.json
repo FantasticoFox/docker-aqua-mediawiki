@@ -1,5 +1,12 @@
 {
     "require": {
         "rht/merkle-tree": "dev-master"
+    },
+    "extra": {
+        "merge-plugin": {
+            "include": [
+                "extensions/*/composer.json"
+            ]
+        }
     }
 }
