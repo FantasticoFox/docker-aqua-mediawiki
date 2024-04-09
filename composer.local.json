@@ -1,6 +1,18 @@
 {
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://gerrit.wikimedia.org/r/mediawiki/extensions/OpenIDConnect"
+        },
+        {
+            "type": "vcs",
+            "url": "https://gerrit.wikimedia.org/r/mediawiki/extensions/PluggableAuth"
+        }
+    ],
     "require": {
-        "rht/merkle-tree": "dev-master"
+        "rht/merkle-tree": "dev-master",
+        "mediawiki/openidconnect": "8.0.*",
+        "mediawiki/pluggable-auth": "7.1.*"
     },
     "extra": {
         "merge-plugin": {

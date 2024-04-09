@@ -190,3 +190,8 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
     git submodule update --init && \
     cd vendors/oauth2-client && \
     composer install
+
+# Prepare patches
+COPY ./apply-patches.sh apply-patches.sh
+COPY ./resources/patch _patches
+RUN chmod +x apply-patches.sh
