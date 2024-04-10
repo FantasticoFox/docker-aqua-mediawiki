@@ -16,7 +16,7 @@ do
     if [[ "$cmdout" == *"FAILED"* ]]; then
         printf "${RED}FAILED!${NC}\n"
     else
-        cmdout=$(/usr/bin/env patch -s $original_file $patch_file)
+        cmdout=$(/usr/bin/env patch -s -l $original_file $patch_file)
         printf "${GREEN}DONE!${NC}\n"
     fi
 done < <(find $patch_dir -type f -name "*\.diff")
