@@ -18,11 +18,18 @@ RUN set -ex && \
 # Define working directory for the following commands
 WORKDIR ${MW_ROOT}
 
-# Copy Tweeki skin to skins/
-COPY ./skins/Tweeki skins/Tweeki
+#install skins
+COPY actionfiles/build_and_push_docker_image/setup/install_skins.sh .
+RUN chmod +x install_skins.sh
+RUN ./install_skins.sh
+RUN rm ./install_skins.sh
 
-# Copy extensions
-COPY ./extensions extensions
+#install plugins
+COPY actionfiles/build_and_push_docker_image/setup/install_plugins.sh .
+RUN chmod +x install_plugins.sh
+RUN ./install_plugins.sh
+RUN rm ./install_plugins.sh
+
 
 # Copy the php.ini with desired upload_max_filesize into the php directory.
 COPY ./resources/php.ini /usr/local/etc/php/php.ini
