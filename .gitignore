@@ -1,3 +1,4 @@
 extensions/
 master.tar.gz
 *.zip
+/.idea/
