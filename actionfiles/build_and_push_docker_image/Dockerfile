@@ -9,7 +9,7 @@ ENV MW_ROOT /var/www/html
 # TODO remove the /etc/apt/preferences.d/no-debian-php and apt-get -q install -y --no-install-recommends zip unzip php-zip once we upgrade to 1.36 because they are not necessary anymore.
 RUN set -ex && \
     apt-get -q update && apt-get upgrade -y && \
-    apt-get -q install -y --no-install-recommends nano vim ripgrep tig fd-find && \
+    apt-get -q install -y --no-install-recommends wget nano vim ripgrep tig fd-find && \
     rm /etc/apt/preferences.d/no-debian-php && \
     apt-get -q install -y --no-install-recommends zip unzip php-zip && \
     apt-get -q install -y --no-install-recommends mariadb-client && \
