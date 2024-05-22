@@ -37,6 +37,6 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ github.event.release.tag_name }}
+          tags: ${{ github.event.release.tag_name || steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           file: actionfiles/build_and_push_docker_image/Dockerfile
