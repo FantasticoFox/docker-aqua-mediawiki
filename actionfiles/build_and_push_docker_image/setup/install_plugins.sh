@@ -1,14 +1,13 @@
 #versions
-pdfembed_version=2.0.2
+pdfEmbed_version=PDFEmbed-REL1_42-aebb5bd.tar.gz
 openIdConnect_version=OpenIDConnect-REL1_41-dc7b06b.tar.gz
 pageForms_version=PageForms-REL1_41-6415072.tar.gz
 
 # https://www.mediawiki.org/wiki/Extension:PDFEmbed
 if [ ! -d extensions/PDFEmbed ]; then
     echo "Downloading PDFEmbed"
-    wget https://gitlab.com/hydrawiki/extensions/PDFEmbed/-/archive/${pdfembed_version}/PDFEmbed-${pdfembed_version}.zip
-    unzip PDFEmbed-${pdfembed_version}.zip
-    mv PDFEmbed-${pdfembed_version}/ extensions/PDFEmbed
+    wget https://extdist.wmflabs.org/dist/extensions/${pdfEmbed_version}
+        tar -xf ${pdfEmbed_version} -C extensions/
 fi
 
 if [ ! -d extensions/OpenIDConnect ]; then
