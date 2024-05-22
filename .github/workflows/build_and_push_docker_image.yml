@@ -33,11 +33,10 @@ jobs:
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
       - name: Build and push Docker image
-        id: push
         uses: docker/build-push-action@f2a1d5e99d037542a71f64918e516c093c6f3fc4
         with:
           context: .
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ github.event.release.tag_name }}
+          tags: ${{ github.event.release.tag_name }}
+          labels: ${{ steps.meta.outputs.labels }}
           file: actionfiles/build_and_push_docker_image/Dockerfile
