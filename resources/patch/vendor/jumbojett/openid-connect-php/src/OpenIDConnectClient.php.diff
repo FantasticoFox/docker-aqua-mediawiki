@@ -1,0 +1,14 @@
+--- jumbojett.orig/openid-connect-php/src/OpenIDConnectClient.php       2024-04-09 11:43:43.693588959 +0000
++++ jumbojett/openid-connect-php/src/OpenIDConnectClient.php    2024-04-09 11:43:51.901642424 +0000
+@@ -1416,6 +1416,11 @@
+      * @return mixed
+      */
+     protected function fetchURL($url, $post_body = null, $headers = []) {
++       // Patch - make SIWE accessible inside the container
++       $outSiweURL = $GLOBALS['wgSIWEhost'];
++       $outSiwePort = $GLOBALS['wgSIWEport'];
++       $url = preg_replace( "/(^http:\/\/|https:\/\/)($outSiweURL)(:$outSiwePort.*$)/", '$1siwe-oidc$3', $url );
++       // End patch
+
+         // OK cool - then let's create a new cURL resource handle
+         $ch = curl_init();

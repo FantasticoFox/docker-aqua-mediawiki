@@ -1,0 +1,13 @@
+--- extensions/OpenIDConnect/includes/OpenIDConnect.php 2024-04-10 09:44:10.227981652 +0000
++++ extensions/OpenIDConnect.fix/includes/OpenIDConnect.php     2024-04-10 09:53:55.783768338 +0000
+@@ -514,6 +514,10 @@
+                if ( $preferred_username === null ) {
+                        $preferred_username = 'User';
+                }
++               // Patch to allow logging in with initial user created at setup time
++               if ( $preferred_username === $GLOBALS['daWalletAddress'] ) {
++                       return $preferred_username;
++               }
+
+                $userIdentity = $this->userIdentityLookup->getUserIdentityByName( $preferred_username );
+                if ( !$userIdentity || !$userIdentity->isRegistered() ) {
