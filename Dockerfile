@@ -179,6 +179,9 @@ RUN rm ./build.sh
 # Remove this once MediaWiki has made a patch release.
 RUN sed -i 's/$this->package->setProvides( \[ $link \] );/$this->package->setProvides( \[ self::MEDIAWIKI_PACKAGE_NAME => $link \] );/' ./includes/composer/ComposerPackageModifier.php
 
+# If this environment is not set, Composer does not work as intended.
+ENV COMPOSER_ALLOW_SUPERUSER=1
+
 # Install the latest version of PHP package manager "Composer" and install
 # MW-OAuth2Client from Git master.
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin/ --filename=composer && \
