@@ -12,7 +12,8 @@
     "require": {
         "rht/merkle-tree": "dev-master",
         "mediawiki/openidconnect": "8.0.1",
-        "mediawiki/pluggable-auth": "7.1.0"
+        "mediawiki/pluggable-auth": "7.1.0",
+        "mediawiki/page-forms": "5.6.*"
     },
     "extra": {
         "merge-plugin": {
