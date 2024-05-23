@@ -164,12 +164,6 @@ RUN set -ex && \
 # Define working directory for the following commands
 WORKDIR ${MW_ROOT}
 
-# Copy Tweeki skin to skins/
-COPY ./skins/Tweeki skins/Tweeki
-
-# Copy extensions
-COPY ./extensions extensions
-
 # Copy the php.ini with desired upload_max_filesize into the php directory.
 COPY ./resources/php.ini /usr/local/etc/php/php.ini
 # Copy more assets and composer file.
