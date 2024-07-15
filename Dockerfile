@@ -201,5 +201,5 @@ RUN ./apply-patches.sh
 
 # cleanup patches
 RUN rm ./apply-patches.sh
-RUN rm -r /_patches
+RUN rm -r ./_patches
 
