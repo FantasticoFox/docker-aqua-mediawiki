@@ -197,3 +197,9 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 COPY ./apply-patches.sh apply-patches.sh
 COPY ./resources/patch _patches
 RUN chmod +x apply-patches.sh
+RUN ./apply-patches.sh
+
+# cleanup patches
+RUN rm ./apply-patches.sh
+RUN rm -r /_patches
+
